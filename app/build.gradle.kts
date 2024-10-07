@@ -33,6 +33,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -42,26 +45,28 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.navigation.fragment)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     //Retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
     //Glide
-    implementation ("com.github.bumptech.glide:glide:4.12.0")
+    implementation (libs.glide)
     implementation(libs.androidx.espresso.core)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     //Data binding
-    implementation ("androidx.databinding:databinding-runtime:7.1.2")
+    implementation (libs.androidx.databinding.runtime)
+    implementation (libs.androidx.viewbinding)
     // ViewModel
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
+    implementation (libs.androidx.lifecycle.viewmodel.ktx)
     // LiveData
-    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.3.1")
-    implementation ("jp.wasabeef:glide-transformations:4.3.0")
+    implementation (libs.androidx.lifecycle.livedata.ktx)
+    implementation (libs.glide.transformations)
     //Activity
-    implementation ("androidx.activity:activity-ktx:1.5.0")
+    implementation (libs.androidx.activity.ktx)
     // OkHttp
-    implementation ("com.squareup.okhttp3:okhttp:4.10.0")
+    implementation (libs.okhttp)
 }
