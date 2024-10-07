@@ -12,9 +12,8 @@ import kotlinx.coroutines.launch
 class PersonajeViewModel : ViewModel() {
     val personajeObjectLiveData = MutableLiveData<PersonajeObject>()
     private val personajeListRequirement = PersonajeListRequirement()
-    private var currentPage = 1
 
-    fun getPersonajeList(page: Int = currentPage) {
+    fun getPersonajeList(page: Int) {
         viewModelScope.launch {
             val result: PersonajeObject? = personajeListRequirement(page)
             CoroutineScope(Dispatchers.Main).launch {
@@ -22,5 +21,4 @@ class PersonajeViewModel : ViewModel() {
             }
         }
     }
-
 }

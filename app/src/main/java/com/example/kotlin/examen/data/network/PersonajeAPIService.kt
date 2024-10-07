@@ -15,8 +15,8 @@ interface PersonajeAPIService {
     ): PersonajeObject
 
     //https://dragonball-api.com/api/characters/1
-    @GET("characters/{numeroPersonaje}")
-    suspend fun getPersonajeInfo(
-        @Path("numberPersonaje") numberPersonaje: Int
+    @GET("characters")
+    suspend fun getPersonajeImage(
+        @Query("page") page: Int
     ): PersonajeBase
 }

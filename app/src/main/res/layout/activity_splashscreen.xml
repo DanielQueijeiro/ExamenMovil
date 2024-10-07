@@ -8,6 +8,7 @@
     <ImageView
         android:layout_width="3600dp"
         android:layout_height="120dp"
+        android:id="@+id/splashImageView"
         android:src="@drawable/dragonball"
         android:layout_gravity="center"
         android:layout_centerInParent="true"

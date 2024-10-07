@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.example.kotlin.examen.R
 import com.example.kotlin.examen.databinding.ActivitySplashscreenBinding
 import com.example.kotlin.examen.framework.viewmodel.SplashscreenViewModel
 
@@ -26,6 +27,8 @@ class SplashscreenActivity:AppCompatActivity() {
     private fun initializeBinding(){
         binding = ActivitySplashscreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        // Asegúrate de que el ImageView esté configurado correctamente
+        binding.splashImageView.setImageResource(R.drawable.dragonball)
     }
 
     private fun initializeObservers(){

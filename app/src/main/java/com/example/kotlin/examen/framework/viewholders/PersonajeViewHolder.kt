@@ -22,6 +22,9 @@ class PersonajeViewHolder(private val binding: ItemPersonajeBinding) : RecyclerV
         binding.TVName.text = item.name
         binding.TVDesc.text = item.description
         binding.TVRaza.text = item.race
+        binding.TVKi.text = "Ki normal: ${item.ki} | Ki maximo: ${item.maxKi}"
+        binding.TVGenero.text = item.gender
+        binding.TVAfiliacion.text = item.affiliation
         getPersonajeImage(item.image,binding.IVPhoto,context)
 
     }

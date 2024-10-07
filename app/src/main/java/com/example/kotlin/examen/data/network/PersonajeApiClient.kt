@@ -19,7 +19,7 @@ class PersonajeApiClient {
     suspend fun getPersonajeImage(numeroPersonaje:Int): PersonajeBase? {
         api = NetworkModuleDI()
         return try{
-            api.getPersonajeInfo(numeroPersonaje)
+            api.getPersonajeImage(numeroPersonaje)
         }catch (e:java.lang.Exception){
             e.printStackTrace()
             null
