@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -94,8 +95,11 @@ class PersonajeFragment : Fragment() {
 
     fun filterByGender(gender: String) {
         val filteredList = data.filter { it.gender == gender }
-        Log.d("PersonajeFragment", "filteredList: $filteredList")
-        setUpRecyclerView(ArrayList(filteredList))
+        if (filteredList.isEmpty()) {
+            Toast.makeText(requireContext(), "No hay personajes que coincidan con el filtro en esta página. Cambia de página y vuelve a filtrar.", Toast.LENGTH_LONG).show()
+        } else {
+            setUpRecyclerView(ArrayList(filteredList))
+        }
     }
 
     fun showAffiliationFilterDialog() {
@@ -110,7 +114,7 @@ class PersonajeFragment : Fragment() {
     }
 
     fun showRaceFilterDialog() {
-        val races = arrayOf("Saiyan", "Namekian", "Human", "Frieza Race", "Android")
+        val races = arrayOf("Saiyan", "Namekian", "Human", "Frieza Race", "Android", "Majin", "God", "Angel", "Unknown", "Jiren Race", "Nucleico benigno")
         val builder = AlertDialog.Builder(requireContext())
         builder.setTitle("Selecciona una raza")
         builder.setItems(races) { _, which ->
@@ -122,11 +126,19 @@ class PersonajeFragment : Fragment() {
 
     fun filterByAffiliation(affiliation: String) {
         val filteredList = data.filter { it.affiliation == affiliation }
-        setUpRecyclerView(ArrayList(filteredList))
+        if (filteredList.isEmpty()) {
+            Toast.makeText(requireContext(), "No hay personajes que coincidan con el filtro en esta página. Cambia de página y vuelve a filtrar.", Toast.LENGTH_LONG).show()
+        } else {
+            setUpRecyclerView(ArrayList(filteredList))
+        }
     }
 
     fun filterByRace(race: String) {
         val filteredList = data.filter { it.race == race }
-        setUpRecyclerView(ArrayList(filteredList))
+        if (filteredList.isEmpty()) {
+            Toast.makeText(requireContext(), "No hay personajes que coincidan con el filtro en esta página. Cambia de página y vuelve a filtrar.", Toast.LENGTH_LONG).show()
+        } else {
+            setUpRecyclerView(ArrayList(filteredList))
+        }
     }
 }
